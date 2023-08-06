@@ -1,2 +1,2 @@
 # Design Practice Projects
- HTML CSS JS Projects
+Interactive HTML CSS JS Projects
