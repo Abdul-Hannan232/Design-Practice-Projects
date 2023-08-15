@@ -19,20 +19,32 @@ function showSuccess(element) {
   formControl.className = "form-control success";
 }
 
-//Event Listeners
-//Creating event listeners for submit button
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+// function to check if email is valid
+function validateEmail(mail) {
+  if (
+    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value)
+  ) {
+    return true;
+  }
+  alert("You have entered an invalid email address!");
+  return false;
+}
 
+function checkRequired() {
   //check is username is empty
   if (username.value === "") {
-    showError(username, "Enter correct Username");
+    showError(username, "Username required");
+  } else if (username.value.length < 3) {
+    console.log(username.value.length);
+    showError(email, "Minimum 3 characters required");
   } else {
     showSuccess(username);
   }
 
   //check if email is empty
   if (email.value === "") {
+    showError(email, "Email required");
+  } else if (!validateEmail) {
     showError(email, "Enter correct email");
   } else {
     showSuccess(email);
@@ -51,4 +63,12 @@ form.addEventListener("submit", function (e) {
   } else {
     showSuccess(password2);
   }
+}
+
+//Event Listeners
+//Creating event listeners for submit button
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  checkRequired();
 });
