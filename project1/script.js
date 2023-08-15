@@ -20,39 +20,34 @@ function showSuccess(element) {
 }
 
 // function to check if email is valid
-function validateEmail(mail) {
-  if (
-    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value)
-  ) {
-    return true;
-  }
-  alert("You have entered an invalid email address!");
-  return false;
-}
+const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
 
 function checkRequired() {
   //check is username is empty
   if (username.value === "") {
-    showError(username, "Username required");
-  } else if (username.value.length < 3) {
-    console.log(username.value.length);
-    showError(email, "Minimum 3 characters required");
+    showError(username, "Username is required");
   } else {
     showSuccess(username);
   }
 
   //check if email is empty
   if (email.value === "") {
-    showError(email, "Email required");
-  } else if (!validateEmail) {
-    showError(email, "Enter correct email");
+    showError(email, "Email is required");
+  } else if (!validateEmail(email.value)) {
+    showError(email, "Email is invalid");
   } else {
     showSuccess(email);
   }
 
   //check if password is empty
   if (password.value === "") {
-    showError(password, "Enter correct password");
+    showError(password, "Password is required");
   } else {
     showSuccess(password);
   }
