@@ -28,36 +28,20 @@ const validateEmail = (email) => {
     );
 };
 
-function checkRequired() {
-  //check is username is empty
-  if (username.value === "") {
-    showError(username, "Username is required");
-  } else {
-    showSuccess(username);
-  }
+// function for checking all the inputs have data
+function checkRequired(inputArray) {
+  inputArray.forEach(function (input) {
+    if (input.value === "") {
+      showError(input, `${getInput(input)} is required`);
+    } else {
+      showSuccess(input);
+    }
+  });
+}
 
-  //check if email is empty
-  if (email.value === "") {
-    showError(email, "Email is required");
-  } else if (!validateEmail(email.value)) {
-    showError(email, "Email is invalid");
-  } else {
-    showSuccess(email);
-  }
-
-  //check if password is empty
-  if (password.value === "") {
-    showError(password, "Password is required");
-  } else {
-    showSuccess(password);
-  }
-
-  //check if confirm password is empty
-  if (password2.value === "") {
-    showError(password2, "Password not same");
-  } else {
-    showSuccess(password2);
-  }
+// function for proper naming convention
+function getInput(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
 //Event Listeners
@@ -65,5 +49,5 @@ function checkRequired() {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  checkRequired();
+  checkRequired([username, email, password, password2]);
 });
