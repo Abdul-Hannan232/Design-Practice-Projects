@@ -20,13 +20,16 @@ function showSuccess(element) {
 }
 
 // function to check if email is valid
-const validateEmail = (email) => {
-  return String(email)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-};
+function checkEmail(input) {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if (re.test(input.value.trim())) {
+    showSuccess(input);
+  } else {
+    showError(input, `${getInput(input)} is invalid`);
+  }
+}
 
 // function for checking all the inputs have data
 function checkRequired(inputArray) {
@@ -39,9 +42,29 @@ function checkRequired(inputArray) {
   });
 }
 
-// function for proper naming convention
+// function to get the id of input field with proper naming convention
 function getInput(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
+// function to check length
+function checkLength(input, min, max) {
+  if (input.value.length < min) {
+    showError(input, `${getInput(input)} should be minimum ${min} characters`);
+  } else if (input.value.length > max) {
+    showError(input, `${getInput(input)} can be maximum ${max} characters`);
+  } else {
+    showSuccess(input);
+  }
+}
+
+// function to confirm password
+function checkPassword(pass, pass2) {
+  if (pass.value === pass2.value && pass.value.length !== 0) {
+    showSuccess(pass2);
+  } else {
+    showError(pass2, `Wrong confirm password`);
+  }
 }
 
 //Event Listeners
@@ -50,4 +73,8 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   checkRequired([username, email, password, password2]);
+  checkLength(username, 3, 10);
+  checkLength(password, 6, 30);
+  checkEmail(email);
+  checkPassword(password, password2);
 });
