@@ -6,9 +6,12 @@
     <title>Seat Selection at Movie Theater</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
+    <!-- Container of Movie Selection -->
     <div class="movie-selection">
       <label> Please select your movie </label>
+      <!-- This is the dropdown to select movies -->
       <select id="select-movie">
         <option value="15">Top Gun: Maverick ($15)</option>
         <option value="20">No Time To Die ($20)</option>
@@ -18,6 +21,7 @@
       </select>
     </div>
 
+    <!-- Legend to Display Types of Seats -->
     <ul class="legend">
       <li>
         <div class="seat available"></div>
@@ -33,8 +37,11 @@
       </li>
     </ul>
 
+    <!-- Container for Theater Seating Map -->
     <div class="container">
+      <!-- This is the class to show to Movie Screen -->
       <div class="screen"></div>
+      <!-- 6 Rows x 8 Columns Chart -->
       <div class="row">
         <div class="seat"></div>
         <div class="seat occupied"></div>
@@ -99,7 +106,9 @@
 
     <p class="text">
       You have selected <span id="count">0</span> seats for a total price of
-      $<span class="price">0</span>.
+      $<span id="price">0</span>.
     </p>
+
+    <script src="script.js"></script>
   </body>
 </html>
