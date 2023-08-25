@@ -15,7 +15,8 @@ function updateCount() {
   price.innerText = selectedSeatsCount * moviePrice;
 }
 
-// event listener for selecting seats
+// Event Listeners
+// 1. Event listener for selecting seats
 container.addEventListener("click", (e) => {
   if (
     e.target.classList.contains("seat") &&
@@ -26,4 +27,8 @@ container.addEventListener("click", (e) => {
   }
 });
 
-//event listener for selecting movies
+// 2. Event listener for selecting movies
+movie.addEventListener("change", (e) => {
+  moviePrice = e.target.value;
+  updateCount();
+});
