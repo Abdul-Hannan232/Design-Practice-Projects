@@ -8,6 +8,7 @@ let seats = document.querySelectorAll(".row .seat:not(.occupied)");
 let count = document.getElementById("count");
 let price = document.getElementById("price");
 
+// Update UI by using data of local storage
 populateUI();
 
 function updateCount() {
@@ -28,7 +29,7 @@ function saveMovieData(movieIndex, moviePrice) {
   localStorage.setItem("Selected Movies Price", moviePrice);
 }
 
-// Use data stored in Local Storage
+// Get data from local storage and populate UI
 function populateUI() {
   const selectedSeatsIndex = JSON.parse(localStorage.getItem("Selected Seats"));
   if (selectedSeatsIndex !== null && selectedSeatsIndex.length > 0) {
