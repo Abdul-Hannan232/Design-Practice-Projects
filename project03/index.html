@@ -11,6 +11,36 @@
     <title>Custom Video Player</title>
   </head>
   <body>
+    <h1>Beast Video Player</h1>
+
+    <!-- This is the video player. Poster attribute gives thumbnail to the video -->
+    <video
+      src="videos/DON’TLOOKUP.mp4"
+      class="screen"
+      id="video"
+      poster="images/download.jpeg"
+      width="100%"
+      height="80%"
+    ></video>
+
+    <!-- Adding custom controls -->
+    <div class="controls">
+      <!-- Video Play Button -->
+      <button class="btn" id="play">
+        <!-- font awesome play button -->
+        <i class="fa fa-play fa-2x"></i>
+      </button>
+
+      <!-- Video Stop Button -->
+      <button class="btn" id="pause">
+        <!-- font awesome stop button -->
+        <i class="fa fa-stop fa-2x"></i>
+      </button>
+
+      <!-- Progress Bar -->
+      <input type="range" name="input" id="input" min="0" max="100" value="0" />
+      <span class="timer" id="timer">00.00</span>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
