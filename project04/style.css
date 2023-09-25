@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  color: green;
+}
+p {
+  text-align: center;
+}
+.currency {
+  padding: 40px 0;
+}
+.currency select {
+  padding: 10px 20px 10px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: transparent;
+  color: black;
+}
+.btn {
+  background-color: green;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+}
+.swap-rates-container {
+}
+select:focus,
+input:focus,
+button:focus {
+  outline: 0;
+}
