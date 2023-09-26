@@ -17,6 +17,8 @@ p {
   text-align: center;
 }
 .currency {
+  display: flex;
+  justify-content: space-between;
   padding: 40px 0;
 }
 .currency select {
@@ -25,6 +27,12 @@ p {
   font-weight: 400;
   background-color: transparent;
   color: black;
+}
+.currency input {
+  border: 0;
+  background-color: transparent;
+  text-align: right;
+  font-size: 20px;
 }
 .btn {
   background-color: green;
@@ -36,6 +44,14 @@ p {
   cursor: pointer;
 }
 .swap-rates-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.rate {
+  color: green;
+  font-size: 16px;
+  padding: 0 10px;
 }
 select:focus,
 input:focus,
