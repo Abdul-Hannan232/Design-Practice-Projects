@@ -7,7 +7,7 @@ const sortBtn = document.getElementById("sort");
 const sumBtn = document.getElementById("sum");
 
 // Initialize the User data array
-const data = [];
+let data = [];
 
 // Fetch random user from randomuser.me API
 async function getResponse() {
@@ -49,6 +49,21 @@ function updateDOM(userData = data) {
   });
 }
 
+// Function to double money for all users
+function doubleMoney() {
+  // Loop through all users in the users data array
+  // For each user, return the user data
+  // Override the data array with new data array created with map
+  data = data.map((user) => {
+    return { ...user, balance: user.balance * 2 };
+  });
+
+  updateDOM(data);
+}
+
 // Event Listeners
 // 1. Add Button Listener
 addUserBtn.addEventListener("click", getResponse);
+
+// 2. Double Money of Users Listener
+doubleBtn.addEventListener("click", doubleMoney);
