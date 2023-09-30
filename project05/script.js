@@ -49,8 +49,6 @@ function updateDOM(userData = data) {
   });
 }
 
-getResponse();
-getResponse();
-getResponse();
-getResponse();
-getResponse();
+// Event Listeners
+// 1. Add Button Listener
+addUserBtn.addEventListener("click", getResponse);
