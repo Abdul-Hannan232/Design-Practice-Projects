@@ -58,12 +58,36 @@ function doubleMoney() {
     return { ...user, balance: user.balance * 2 };
   });
 
+  // Update  DOM using new User Data
   updateDOM(data);
+}
+
+// Function to filter Millionaire
+function filterMillionaire() {
+  // Filter Loop through all users in the users data array
+  // For each user, return only millionaire user data
+  // Override the data array with new data filtered array created with filter
+  data = data.filter((user) => user.balance > 1000000);
+
+  // Update  DOM using new filtered Data
+  updateDOM(data);
+}
+
+// function to sort users by comparing money
+function sortByBalance() {
+  // Sort data using compare function inside sort
+  data = data.sort((a, b) => b.balance - a.balance);
+
+  // Update DOM using new sorted data
+  updateDOM();
 }
 
 // Event Listeners
 // 1. Add Button Listener
 addUserBtn.addEventListener("click", getResponse);
-
 // 2. Double Money of Users Listener
 doubleBtn.addEventListener("click", doubleMoney);
+// 3. Filter Millionaire
+filterBtn.addEventListener("click", filterMillionaire);
+// 4. Sort Users By Money
+sortBtn.addEventListener("click", sortByBalance);
