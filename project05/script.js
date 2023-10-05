@@ -82,6 +82,12 @@ function sortByBalance() {
   updateDOM();
 }
 
+// function to sum wealth of all users
+function sumAllWealth() {
+  const sum = data.reduce((prev, current) => prev.balance + current.balance);
+  console.log(sum);
+}
+
 // Event Listeners
 // 1. Add Button Listener
 addUserBtn.addEventListener("click", getResponse);
@@ -91,3 +97,5 @@ doubleBtn.addEventListener("click", doubleMoney);
 filterBtn.addEventListener("click", filterMillionaire);
 // 4. Sort Users By Money
 sortBtn.addEventListener("click", sortByBalance);
+// 5. Add all wealth
+sumBtn.addEventListener("click", sumAllWealth);
